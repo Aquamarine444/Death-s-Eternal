@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Floor
+  - AboveWorld
+  - Underworld
+  - Docks
   layers:
   - Default
   - TransparentFX
