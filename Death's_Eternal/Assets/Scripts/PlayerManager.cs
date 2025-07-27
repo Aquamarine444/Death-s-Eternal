@@ -13,9 +13,13 @@ public class PlayerManager : MonoBehaviour
     private PhaseManager Phases;
     public GameObject Manager;
 
+    private AWDungeonManager EnterAW;
+
     private void Start()
     {
         Phases = Manager.GetComponent<PhaseManager>();
+
+        EnterAW = Manager.GetComponent<AWDungeonManager>();
     }
 
     private void Update()
@@ -37,6 +41,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     DialogueMessage.SetActive(true);
                     Message.text = "Let's get this over with...";
+                    EnterAW.GenerateDungeon();
                 }
             }
 
@@ -48,6 +53,11 @@ public class PlayerManager : MonoBehaviour
                     Message.text = "I don't have any souls that need ferrying...";
                 }
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            EnterAW.ExitDungeon();
         }
     }
 
